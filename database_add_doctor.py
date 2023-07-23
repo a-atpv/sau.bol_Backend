@@ -10,7 +10,7 @@ client = MongoClient(mongo_url)
 database = client['fastapi']
 
 
-def create_doctor_data(image: str, name: str, price: str, info: str):
+def create_doctor_data(image: str, name: str, price: str, info: str, number: str):
     data = []
 
     data.append(
@@ -18,7 +18,8 @@ def create_doctor_data(image: str, name: str, price: str, info: str):
             "image": image,
             "name": name,
             "price": price,
-            "info": info
+            "info": info,
+            "number": number
         }
     )
     return data
@@ -41,7 +42,8 @@ data = create_doctor_data(
         Благодаря ее умению устанавливать доверительные отношения и непревзойденному \
         медицинскому опыту, она пользуется уважением как среди пациентов, так и среди \
         коллег. Доктор Сыздыкова - надежный проводник в мире здоровья и счастья для \
-        детей."
+        детей.",
+    number="77075676679"
 )
 
 upload_data(data)
