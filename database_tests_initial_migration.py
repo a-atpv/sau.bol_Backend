@@ -3,7 +3,7 @@ import csv
 from pymongo import MongoClient
 
 mongo_url = (
-    f"mongodb://{'root'}:{'password'}@{'localhost'}:{'27017'}/"
+    "mongodb+srv://a_atpv:5dPxFUsXYwMvMiH@cluster0.kplqazt.mongodb.net/?retryWrites=true&w=majority"
 )
 
 client = MongoClient(mongo_url)

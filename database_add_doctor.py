@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 mongo_url = (
-    f"mongodb://{'root'}:{'password'}@{'localhost'}:{'27017'}/"
+    "mongodb+srv://a_atpv:5dPxFUsXYwMvMiH@cluster0.kplqazt.mongodb.net/?retryWrites=true&w=majority"
 )
 
 client = MongoClient(mongo_url)
@@ -10,13 +10,14 @@ client = MongoClient(mongo_url)
 database = client['fastapi']
 
 
-def create_doctor_data(image: str, name: str, price: str, info: str, number: str):
+def create_doctor_data(image: str, name: str, title: str, price: str, info: str, number: str):
     data = []
 
     data.append(
         {
             "image": image,
             "name": name,
+            "title": title,
             "price": price,
             "info": info,
             "number": number
@@ -32,6 +33,7 @@ def upload_data(data):
 data = create_doctor_data(
     image="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-at-camera-in-the-office_1301-7807.jpg?w=2000",
     name="Сыздыкова Мадина Муратовна",
+    title="Педиатр",
     price="15000",
     info="Доктор Мадина Муратовна Сыздыкова - выдающийся педиатр с более чем 20-летним \
         опытом работы. Она является обладательницей степени доктора философии (PhD) и \
@@ -43,7 +45,7 @@ data = create_doctor_data(
         медицинскому опыту, она пользуется уважением как среди пациентов, так и среди \
         коллег. Доктор Сыздыкова - надежный проводник в мире здоровья и счастья для \
         детей.",
-    number="77075676679"
+    number="77011878815"
 )
 
 upload_data(data)
