@@ -12,7 +12,7 @@ class RecommendationRequest(AppModel):
 
 
 class RecommendationResponse(AppModel):
-    recommendations: str
+    recommendations: dict
 
 
 @router.post("/recommendations", response_model=RecommendationResponse)
