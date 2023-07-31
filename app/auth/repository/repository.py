@@ -105,7 +105,7 @@ class AuthRepository:
         smtp_server = 'smtp-mail.outlook.com'
         smtp_port = 587
         smtp_username = 'sau.bol.app@hotmail.com'
-        smtp_password = 'sau.Bol951123@'
+        smtp_password = 'Sau.Bol951123@'
         sender_email = 'sau.bol.app@hotmail.com'
 
         subject = 'Password Reset Token'
