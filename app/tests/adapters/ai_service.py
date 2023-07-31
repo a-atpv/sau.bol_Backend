@@ -47,7 +47,7 @@ class AiService:
                 '"resourse": "научную статью на которую ссылаешься, указывай ссылку"}'
             )
 
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Ты доктор, помогающий поднять качество жизни"},
