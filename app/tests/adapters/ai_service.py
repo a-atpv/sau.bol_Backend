@@ -58,3 +58,4 @@ def get_recommendations(self, symptoms: List[str]) -> str:
     )
 
     return response['choices'][0]['message']['content'].strip()
+
