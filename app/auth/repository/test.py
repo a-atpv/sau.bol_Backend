@@ -1,39 +1,29 @@
-# import smtplib
-# # from email.mime.text import MIMEText
-# # from email.mime.multipart import MIMEMultipart
-# # import secrets
+from datetime import datetime, timedelta
+from typing import Optional
+import secrets
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+# import smtplib, ssl
+import yagmail
 
 
-# def send_reset_token_email(email: str, reset_token: str) -> bool:
-#     # smtp_server = 'smtp-mail.outlook.com'
-#     # smtp_port = 587
-#     smtp_username = 'sau.bol.app@hotmail.com'
-#     smtp_password = 'sau.Bol951123@'
-#     sender_email = 'sau.bol.app@hotmail.com'
+def send_reset_token_email(email: str, reset_token: str) -> bool:
+    smtp_username = 'sau.bol.app@hotmail.com'
+    smtp_password = 'Sau.Bol951123@'
+    subject = 'Password Reset Token'
+    body = f'Your password reset token is: {reset_token}'
 
-#     # subject = 'Password Reset Token'
-#     message = f'Your password reset token is: {reset_token}'
+    try:
+        yag = yagmail.SMTP(smtp_username, smtp_password, "smtp.office365.com", 587,)
+        yag.send(
+            to=email,
+            subject=subject,
+            contents=body
+        )
+        print("done")
+        return True
+    except Exception as e:
+        print(f"Error sending email: {e}")
+        return False
 
-#     try:
-#         server = smtplib.SMTP_SSL('smtp-mail.outlook.com:587')
-#         server.login(smtp_username, smtp_password)
-#         server.sendmail(sender_email, email, message)
-#         server.quit()
-
-#         # server = smtplib.SMTP(smtp_server, smtp_port)
-#         # server.starttls()
-#         # server.login(smtp_username, smtp_password)
-#         # server.sendmail(sender_email, email, msg.as_string())
-#         # server.quit()
-
-#         return True
-
-#     except Exception as e:
-#         print(f"Error sending email: {e}")
-#         return False
-
-
-# send_reset_token_email(
-#     email="aldiyar09.02@mail.ru",
-#     reset_token="sdf"
-# )
+send_reset_token_email("aldiyar09.02@mail.ru", "shdfkjsjlgjslkf")

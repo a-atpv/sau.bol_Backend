@@ -16,6 +16,7 @@ python-multipart = "^0.0.6"
 pymongo = {extras = ["srv"], version = "^4.3.3"}
 orjson = "^3.9.1"
 openai = "^0.27.8"
+yagmail = "^0.15.293"
 
 
 [tool.poetry.group.dev.dependencies]
