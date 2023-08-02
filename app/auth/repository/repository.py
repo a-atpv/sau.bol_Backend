@@ -106,50 +106,12 @@ class AuthRepository:
         return True
     
     def send_reset_token_email(self, email: str, reset_token: str) -> bool:
-        smtp_username = 'sau.bol.app@hotmail.com'
-        smtp_password = 'Sau.Bol951123@'
+        yag = yagmail.SMTP(user='aldiyar.dev@gmail.com', password='ejmmqvfstjzjxsaa', host='smtp.gmail.com', port=465)
+        to = email
         subject = 'Password Reset Token'
         body = f'Your password reset token is: {reset_token}'
 
-        yag = yagmail.SMTP(smtp_username, smtp_password, "smtp-mail.outlook.com", 587)
-        yag.send(
-            to=email,
-            subject=subject,
-            contents=body
-        )
+        yag.send(to=to, subject=subject, contents=body)
         print("done")
         return True
-        # try:
-        #     yag = yagmail.SMTP(smtp_username, smtp_password, "smtp.office365.com", 587)
-        #     yag.send(
-        #         to=email,
-        #         subject=subject,
-        #         contents=body
-        #     )
-        #     print("done")
-        #     return True
-        # except Exception as e:
-        #     print(f"Error sending email: {e}")
-        #     return False
-
-    # def send_reset_token_email(self, email: str, reset_token: str) -> bool:
-    #     smtp_server = 'smtp-mail.outlook.com'
-    #     smtp_port = 587
-    #     smtp_username = 'sau.bol.app@hotmail.com'
-    #     smtp_password = 'Sau.Bol951123@'
-    #     sender_email = 'sau.bol.app@hotmail.com'
-
-    #     subject = 'Password Reset Token'
-    #     message = f'Your password reset token is: {reset_token}'
-
-    #     try:
-    #         context = ssl.create_default_context()
-    #         server = smtplib.SMTP_SSL(smtp_server, smtp_port, context=context)
-    #         server.login(sender_email, smtp_password)
-    #         server.sendmail(sender_email, email, message)
-
-    #         return True
-
-    #     except Exception as e:
-    #         print(f"Error sending email: {e}")
-    #         return False
+    
